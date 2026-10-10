@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f4">
+    <title>SembakoKu — Kasir</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="SembakoKu beranda">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>
+            <strong>SembakoKu</strong>
+            <small>Kasir toko bahan pokok</small>
+          </span>
+        </a>
+        <div class="store-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Kasir aktif</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="catalog" aria-labelledby="catalog-heading">
+          <div class="intro">
+            <div>
+              <p class="eyebrow">TOKO SEMBAKO</p>
+              <h1 id="catalog-heading">Mulai transaksi</h1>
+              <p class="intro-copy">Pilih barang untuk menambahkannya ke keranjang.</p>
+            </div>
+            <div class="date-chip" id="today-date"></div>
+          </div>
+
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <span class="visually-hidden">Cari produk</span>
+            <input id="product-search" type="search" placeholder="Cari nama bahan pokok..." autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+
+          <div class="section-heading">
+            <div>
+              <h2>Daftar produk</h2>
+              <p><span id="product-count">9</span> produk tersedia <span class="price-note">· Harga contoh, dapat diubah</span></p>
+            </div>
+            <span class="category-pill">Semua produk</span>
+          </div>
+
+          <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        </section>
+
+        <aside class="cart-panel" aria-labelledby="cart-heading">
+          <div class="cart-header">
+            <div>
+              <p class="eyebrow">PENJUALAN</p>
+              <h2 id="cart-heading">Keranjang</h2>
+            </div>
+            <span class="cart-count" id="cart-count">0 barang</span>
+          </div>
+
+          <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+              <span class="empty-icon" aria-hidden="true">🧺</span>
+              <strong>Keranjang masih kosong</strong>
+              <span>Pilih produk di sebelah kiri untuk mulai.</span>
+            </div>
+          </div>
+
+          <div class="cart-footer">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="subtotal">Rp0</strong>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total bayar</span>
+              <strong id="total">Rp0</strong>
+            </div>
+
+            <label class="payment-label" for="cash-received">Uang diterima</label>
+            <div class="payment-input">
+              <span>Rp</span>
+              <input id="cash-received" type="number" min="0" step="500" placeholder="0" inputmode="numeric">
+            </div>
+            <div class="change-row">
+              <span>Kembalian</span>
+              <strong id="change">Rp0</strong>
+            </div>
+
+            <button class="checkout-button" id="checkout-button" type="button" disabled>
+              <span>Selesaikan transaksi</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <button class="clear-button" id="clear-cart" type="button" disabled>Kosongkan keranjang</button>
+          </div>
+        </aside>
+      </main>
+      <footer class="app-footer">
+        <span>Harga pada aplikasi ini adalah contoh dan bisa disesuaikan dengan harga toko.</span>
+        <span>Versi demo · Data transaksi tidak disimpan</span>
+      </footer>
+    </div>
+
+    <dialog class="receipt-dialog" id="receipt-dialog" aria-labelledby="receipt-heading">
+      <div class="receipt-content" id="receipt-content"></div>
+      <div class="receipt-actions">
+        <button class="secondary-button" id="close-receipt" type="button">Tutup</button>
+        <button class="checkout-button print-button" id="print-receipt" type="button">Cetak struk</button>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
